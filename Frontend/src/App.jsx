@@ -1,12 +1,13 @@
-import { useState } from 'react'
+import React from 'react';
+import CreatePoll from './Components/Createpoll';
 
-function App() {
-  
-  return (
-    <>
-      <div> Hello world! </div>
-    </>
-  )
-}
+const App = () => {
+    return (
+        <div className="App">
+          <CreatePoll/>
+          <Vote/>
+        </div>
+    );
+};
 
 export default App
