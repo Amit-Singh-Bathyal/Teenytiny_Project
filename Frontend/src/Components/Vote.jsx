@@ -7,7 +7,7 @@ const [option, setOption] = useState('');
 const [message, setMessage] = useState('');
 
 
-const handlesubmit = async() => {
+const handleSubmit = async() => {
     try {
         const response = await axios.post('http://localhost:3000/vote', { pollId, option });
         setMessage(response.data.message);
@@ -18,15 +18,22 @@ const handlesubmit = async() => {
 };
 
 return(
-    
-)
+    <div>
+    <h2>Vote on Poll</h2>
+    <form onSubmit={handleSubmit}>
+        <label>
+            Poll ID:
+            <input type="text" value={pollId} onChange={(e) => setPollId(e.target.value)} />
+        </label>
+        <label>
+            Option:
+            <input type="text" value={option} onChange={(e) => setOption(e.target.value)} />
+        </label>
+        <button type="submit">Vote</button>
+    </form>
+    <p>{message}</p>
+</div>
+);
+};
+export default Vote;
 
-
-
-
-
-
-
-
-
-}
