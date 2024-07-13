@@ -34,28 +34,30 @@ app.post('/createpolls', async (req, res) => {
 
 
 app.post('/vote', async (req, res) => {
-  const { pollId, option } = req.body;
+ 
+  const pollId = req.session.pollId;
+  const { option } = req.body;
+
+  if (!pollId) {
+    return res.status(400).json({ message: "No poll selected" });
+  }
+
   try {
     const poll = await Poll.findById(pollId);
     if (!poll) {
-      return res.status(404).json({ message: "poll not found" });
+      return res.status(404).json({ message: "Poll not found" });
     }
-    if (!poll.options.includes(option)) {
-      return res.status(400).json({ message: 'invalid option' });
-    }
-    if (poll.votes.has(option)) {
-      poll.votes.set(option, poll.votes.get(option) + 1);
-    } else {
-      poll.votes.set(option, 1);
-    }
+
+   
+    poll.votes.set(option, (poll.votes.get(option) || 0) + 1);
+
     await poll.save();
-    res.status(200).json({ message: 'vote recorded', poll });
+    res.status(200).json({ message: 'Vote recorded', poll });
   } catch (error) {
     console.error('Error recording vote:', error);
-    res.status(500).json({ message: 'failed to record vote' });
+    res.status(500).json({ message: 'Failed to record vote' });
   }
 });
-
 
 
 app.delete('/poll/Id',async(req,res)=>{
