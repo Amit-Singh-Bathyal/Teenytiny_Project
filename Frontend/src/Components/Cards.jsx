@@ -1,20 +1,18 @@
-import React from 'react'
+// src/components/PollCard.js
+import React from 'react';
 
-const Cards = () => {
+const Cards = ({ poll }) => {
   return (
-   <div>
-<div class="bg-gray-200 flex items-center justify-center min-h-screen">
-
-  <div class="bg-white shadow-lg rounded-lg p-6 max-w-sm">
-    <h2 class="text-black text-xl font-semibold mb-4">{question}</h2>
-    <div class="flex space-x-4">
-      <button class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50">{option1}</button>
-      <button class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-opacity-50">{option2}</button>
+    <div className="poll-card bg-zinc-600 text-white p-4 rounded-md m-2">
+      <h3 className="text-lg mb-2">{poll.question}</h3>
+      <ul>
+        {poll.options.map((option, index) => (
+          <li key={index} className="mb-1">{option}</li>
+        ))}
+      </ul>
+      <p className="text-sm mt-2">Created by: {poll.creator}</p>
     </div>
-  </div>
-  </div>
-</div>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;

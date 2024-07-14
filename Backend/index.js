@@ -4,6 +4,7 @@ const app = express();
 const port = 3000;
 const { connectMongoDB } = require("./connect");
 const Poll = require('./models/pollschema');
+const cors = require('cors');
 
 connectMongoDB(process.env.MONGODB ?? "mongodb://localhost:27017/teenytiny").then(() =>
     console.log("Mongodb connected")
@@ -11,6 +12,7 @@ connectMongoDB(process.env.MONGODB ?? "mongodb://localhost:27017/teenytiny").the
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 app.post('/createpolls', async (req, res) => {
     const { question, options, creator } = req.body;
@@ -47,16 +49,16 @@ app.post('/vote', async (req, res) => {
   }
 });
 
-// route to display cards with info
+app.use(express.json());
 
-const data = {
-  question: 'question to be displayed',
-  option1 :'option1 displayeed',
-  option2 : 'option2 displayed',
-};
-
-app.get('/api/data', (req, res) => {
-  res.json(data);
+// API to display cards info
+app.get('/api/polls', async (req, res) => {
+  try {
+    const polls = await Poll.find();
+    res.json(polls);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
 });
 
 app.listen(port, () => {

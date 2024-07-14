@@ -1,24 +1,28 @@
-import { useState } from 'react'
-import Cards from './Components/Cards'
+// src/App.js
+import React, { useEffect, useState } from 'react';
+import Cards from './Components/Cards';
+import './App.css';
 
+const App = () => {
+  const [polls, setPolls] = useState([]);
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import CardPage from './CardsPage';
+  useEffect(() => {
+    fetch('http://localhost:3000/api/polls')
+      .then(response => response.json())
+      .then(data => setPolls(data))
+      .catch(error => console.error('Error fetching polls:', error));
+  }, []);
 
-function App() {
-  
   return (
-    <div>
-    <Router>
-      <Switch>
-        <Route path="/card" component={CardsPage} />
-      </Switch>
-    </Router>
+    <div className="app-container">
+      <h1 className="text-3xl text-center my-4">Polls</h1>
+      <div className="polls-container flex flex-wrap justify-center">
+        {polls.map(poll => (
+          <Cards key={poll._id} poll={poll} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-</div>
-
-
-  )
-}
-
-export default App
+export default App;
