@@ -1,3 +1,4 @@
+
 // src/App.js
 import React, { useEffect, useState } from 'react';
 import Cards from './Components/Cards';
@@ -5,6 +6,7 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import axios from 'axios';
 import Footer from './Components/Footer';
+import CreatePoll from './Components/Createpoll';
 
 const App = () => {
   const [polls, setPolls] = useState([]);
@@ -35,6 +37,10 @@ const App = () => {
     </div>
 
     <Footer/>
+        <div className="App">
+          <CreatePoll/>
+          <Vote/>
+        </div>
     </div>
   );
 };
