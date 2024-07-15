@@ -5,9 +5,7 @@ async function connectMongoDB(url) {
   return mongoose.connect(url);
 }
 
-module.exports = {
-  connectMongoDB,
-};
+
 
 const connect = mongoose.connect("mongodb://localhost:27017/Login");
 
@@ -34,4 +32,8 @@ const LoginSchema = new mongoose.Schema({
 //collection
 const collection = new mongoose.model("users",LoginSchema);
 
-module.exports = collection;
+
+module.exports = {
+  collection,
+  connectMongoDB
+};
