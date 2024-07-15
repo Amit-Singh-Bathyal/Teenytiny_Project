@@ -19,49 +19,45 @@ connectMongoDB(process.env.MONGODB ?? "mongodb://localhost:27017/teenytiny").the
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.post('/createpolls', async (req, res) => {
-    const { question, options, creator } = req.body;
+//app.post('/createpolls', async (req, res) => {
+//    const { question, options, creator } = req.body;
+//
+ //   try {
+   //     const newPoll = await Poll.create({ question, options, creator });
+    //    res.status(200).json({ message: 'Poll created successfully', poll: newPoll });
+ //   } catch (error) {
+ //       console.error('Error creating poll:', error);
+//        res.status(500).json({ message: 'Failed to create poll' });
+//    }
+//});
 
-    try {
-        const newPoll = await Poll.create({ question, options, creator });
-        res.status(200).json({ message: 'Poll created successfully', poll: newPoll });
-    } catch (error) {
-        console.error('Error creating poll:', error);
-        res.status(500).json({ message: 'Failed to create poll' });
-    }
-});
-
-
-
-app.post('/vote', async (req, res) => {
- 
-  const pollId = req.session.pollId;
-  const { option } = req.body;
-
-  if (!pollId) {
-    return res.status(400).json({ message: "No poll selected" });
-  }
-
+app.get('.poll/:Id',async(req,res)=>{
+  const {Id}=req.params.Id;
   try {
-    const poll = await Poll.findById(pollId);
+    const poll = await Poll.findById(Id);
     if (!poll) {
-      return res.status(404).json({ message: "Poll not found" });
-    }
-
-   
-    poll.votes.set(option, (poll.votes.get(option) || 0) + 1);
-
-    await poll.save();
-    res.status(200).json({ message: 'Vote recorded', poll });
-  } catch (error) {
-    console.error('Error recording vote:', error);
-    res.status(500).json({ message: 'Failed to record vote' });
+      return res.status(404).json({ message: 'Poll not found' });
   }
-});
+  res.status(200).json(poll);
+
+    
+  } catch (error) {
+    console.error('Error in fetching:', error);
+    res.status(500).json({ message: 'error in fetching poll' });
+     
+    
+  }
+  
+  
+  })
 
 
-app.delete('/poll/Id',async(req,res)=>{
-const {id}=req.params;
+
+
+
+
+app.delete('/poll/:Id/delete',async(req,res)=>{
+const {Id}=req.params.Id;
 try {
   const poll = await Poll.findByIdAndDelete(Id);
   if (!poll) {
