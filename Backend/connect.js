@@ -9,7 +9,7 @@ async function connectMongoDB(url) {
 
 const connect = mongoose.connect("mongodb://localhost:27017/Login");
 
-//check database connected or not 
+
 connect.then(() => {
   console.log("Database Connected Successfully");
 })
@@ -17,7 +17,7 @@ connect.then(() => {
   console.log("Database cannot be Connected");
 })
 
-//create a schema
+
 const LoginSchema = new mongoose.Schema({
   name: {
       type:String,
@@ -29,7 +29,7 @@ const LoginSchema = new mongoose.Schema({
   }
 });
 
-//collection
+
 const collection = new mongoose.model("users",LoginSchema);
 
 
