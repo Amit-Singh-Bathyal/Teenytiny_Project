@@ -1,0 +1,123 @@
+[
+    {
+      "question": "Which programming language do you prefer?",
+      "options": ["JavaScript", "Python", "Java", "C++"],
+      "creator": "Alice",
+      "votes": {}
+    },
+    {
+      "question": "What is your favorite color?",
+      "options": ["Red", "Blue", "Green", "Yellow"],
+      "creator": "Bob",
+      "votes": {}
+    },
+    {
+      "question": "Which is your favorite season?",
+      "options": ["Spring", "Summer", "Autumn", "Winter"],
+      "creator": "Charlie",
+      "votes": {}
+    },
+    {
+      "question": "Which social media platform do you use most often?",
+      "options": ["Facebook", "Instagram", "Twitter", "LinkedIn"],
+      "creator": "David",
+      "votes": {}
+    },
+    {
+      "question": "What is your preferred music genre?",
+      "options": ["Pop", "Rock", "Hip Hop", "Classical"],
+      "creator": "Emma",
+      "votes": {}
+    },
+    {
+      "question": "Which sport do you enjoy watching?",
+      "options": ["Football", "Basketball", "Tennis", "Cricket"],
+      "creator": "Frank",
+      "votes": {}
+    },
+    {
+      "question": "Which fictional universe would you like to live in?",
+      "options": ["Harry Potter", "Star Wars", "Marvel Universe", "Lord of the Rings"],
+      "creator": "Grace",
+      "votes": {}
+    },
+    {
+      "question": "What type of movies do you prefer?",
+      "options": ["Action", "Comedy", "Drama", "Sci-Fi"],
+      "creator": "Hannah",
+      "votes": {}
+    },
+    {
+      "question": "Which type of pet do you like most?",
+      "options": ["Dog", "Cat", "Bird", "Fish"],
+      "creator": "Ian",
+      "votes": {}
+    },
+    {
+      "question": "What is your favorite dessert?",
+      "options": ["Cake", "Ice Cream", "Pie", "Cookies"],
+      "creator": "Jack",
+      "votes": {}
+    },
+    {
+      "question": "Which city would you like to visit?",
+      "options": ["Paris", "Tokyo", "New York", "Sydney"],
+      "creator": "Kate",
+      "votes": {}
+    },
+    {
+      "question": "What is your preferred method of transportation?",
+      "options": ["Car", "Bicycle", "Public Transit", "Walking"],
+      "creator": "Liam",
+      "votes": {}
+    },
+    {
+      "question": "Which book genre do you enjoy reading?",
+      "options": ["Mystery", "Fantasy", "Romance", "Thriller"],
+      "creator": "Mia",
+      "votes": {}
+    },
+    {
+      "question": "What is your favorite board game?",
+      "options": ["Monopoly", "Chess", "Scrabble", "Ticket to Ride"],
+      "creator": "Nathan",
+      "votes": {}
+    },
+    {
+      "question": "Which beverage do you prefer?",
+      "options": ["Coffee", "Tea", "Juice", "Soda"],
+      "creator": "Olivia",
+      "votes": {}
+    },
+    {
+      "question": "What is your preferred gaming platform?",
+      "options": ["PlayStation", "Xbox", "Nintendo Switch", "PC"],
+      "creator": "Peter",
+      "votes": {}
+    },
+    {
+      "question": "Which TV show genre do you enjoy most?",
+      "options": ["Drama", "Comedy", "Sci-Fi", "Reality"],
+      "creator": "Quinn",
+      "votes": {}
+    },
+    {
+      "question": "Which outdoor activity do you prefer?",
+      "options": ["Hiking", "Camping", "Fishing", "Biking"],
+      "creator": "Rachel",
+      "votes": {}
+    },
+    {
+      "question": "What is your favorite holiday destination?",
+      "options": ["Beach", "Mountains", "City", "Countryside"],
+      "creator": "Sam",
+      "votes": {}
+    },
+    {
+      "question": "Which historical period interests you the most?",
+      "options": ["Ancient Egypt", "Medieval Europe", "Renaissance", "World War II"],
+      "creator": "Tom",
+      "votes": {}
+    }
+  ]
+  
