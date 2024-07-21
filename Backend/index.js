@@ -97,6 +97,22 @@ try {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+
+// end point for poll history
+app.get('/poll-history/:userId', async (req, res) => {
+  try {
+      const user = await User.findById(req.params.userId).populate('pollHistory');
+      if (!user) {
+          return res.status(404).send('User not found');
+      }
+      res.json(user.pollHistory);
+  } catch (error) {
+      res.status(500).send('Server error');
+  }
+});
+
+
+
 const express = require("express");
 const path = require("path");
 const collection = require("./connect");
